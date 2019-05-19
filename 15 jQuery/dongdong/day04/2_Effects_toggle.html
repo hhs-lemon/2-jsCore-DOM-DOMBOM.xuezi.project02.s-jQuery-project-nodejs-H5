@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.box {
+			border: 1px solid #aaa;
+			background: #eee;
+			color: #333;
+			padding: 10px;
+			border-radius: 4px;
+			width: 200px;
+		}
+		.box.hover{
+			background: red;
+			color: #fff;
+		}
+	</style>
+ </head>
+ <body>
+  <h1>jQueryUI-Effects</h1>
+	<h3>新的动画特效</h3>
+	<button id="btn1">click me!</button>
+	<div class="box">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae autem sint asperiores accusamus aliquid inventore atque qui aperiam incidunt ea tenetur quae doloremque dicta minima natus ipsum doloribus iste nam.
+	</div>
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		$("#btn1").click(function(){
+			//$("div.box").toggle("explode",2000);
+			/*blind,bounce,clip,drop,explode,fade,fold,highlight,puff,pulsate,scale,shake,size,slide*/
+			$("div.box").toggleClass("hover",2000);
+		})
+	</script>
+ </body>
+</html>

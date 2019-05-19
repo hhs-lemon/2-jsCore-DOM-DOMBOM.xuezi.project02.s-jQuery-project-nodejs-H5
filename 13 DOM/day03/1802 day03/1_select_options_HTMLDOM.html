@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>二级联动列表</title>
+<meta charset="utf-8" />
+<style>
+	.hide{ display: none; }
+</style>
+
+
+</head>
+<body>
+	<select name="provs">
+		<option>—请选择—</option><!--0-->
+		<option>北京市</option><!--1-->
+		<option>天津市</option>
+		<option>河北省</option>
+	</select>
+	<select name="cities" class="hide">
+	</select>
+  <script>
+	/*实现“省”和“市”的级联下拉列表*/
+	var cities=[
+		[
+			{"name":'东城区',"value":101},
+			{"name":'西城区',"value":102},
+			{"name":'海淀区',"value":103},
+			{"name":'朝阳区',"value":104}
+		],
+		[
+			{"name":'河东区',"value":201},
+			{"name":'河西区',"value":202},
+			{"name":'南开区',"value":203}
+		],
+		[
+			{"name":'石家庄市',"value":301},
+			{"name":'廊坊市',"value":302},
+			{"name":'保定市',"value":303},
+			{"name":'唐山市',"value":304},
+			{"name":'秦皇岛市',"value":305}
+		]
+	];
+
+	var selprovs=document.getElementsByName("provs");
+	console.log(selprovs);//getElementsByName是类数组对象，加下标取元素
+	selprovs.onchange=function(){
+		alert("alert");
+	}
+
+
+
+
+
+
+/*
+* 怎么知道点的是第几个。var i=selProvs.selectedIndex;
+* */
+
+
+
+
+
+
+
+/*
+	//查找触发事件的元素
+	var selProvs=
+		document.getElementsByName("provs")[0];
+	//绑定事件
+	selProvs.onchange=function(){
+		var i=this.selectedIndex;//this->selProvs
+		var selCts=//查找要修改的元素
+			document.getElementsByName("cities")[0];
+		//selCts.innerHTML="";
+		selCts.length=0;
+		if(i>0){//修改元素
+			var frag=document.createDocumentFragment();
+			frag.appendChild(new Option("-请选择-"));
+			for(var {name,value} of cities[--i]){
+				frag.appendChild(new Option(name,value));
+			}
+			selCts.appendChild(frag);
+			selCts.className="";
+		}else{
+			selCts.className="hide";
+		}
+	}
+	var selCts=//查找要修改的元素
+			document.getElementsByName("cities")[0];
+	selCts.onchange=function(){
+		alert(selCts.value);
+	}*/
+</script>
+</body>
+</html>

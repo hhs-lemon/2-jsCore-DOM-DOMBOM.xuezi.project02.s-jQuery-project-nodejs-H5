@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script src="js/jquery-3.2.1.js"></script>
+	<script>
+		$.get("data/1_menu.php","term=i5 256g",function(data){
+			console.log(data);
+		},"json");
+//		$.ajax({
+//			type:"get",
+//			url:"data/1_menu.php",
+//			data:"term=i5 256g",
+//			dataType:"json",//如果返回json，则自动转为对象;
+//			success:function(data){//请求响应结束且成功
+//				console.log(data);
+//			},
+//			error:function(){ //请求响应结束，但出错
+//				console.log("*****向data/1_menu.php发送请求出错!*****");
+//			},
+//			complete:function(){
+//				console.log("*****向data/1_menu.php发送请求且响应完成*****");
+//			}
+//		})
+//		.then(function(data){
+//			console.log(data);
+//		})
+	</script>
+ </body>
+</html>
+<!-- ajax调用：tuddsec
+  （上面是简写方式：get：udsd）
+1.dataType:"json",//如果返回json，则自动转为对象;如果服务端定义了响应的内容类型为applicaton/json，则$.ajax可自动转换，不必写dataType,但，最好写，后端我们一般是不知道的
+2.3x：用then
+
+ -->

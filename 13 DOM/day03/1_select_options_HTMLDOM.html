@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>二级联动列表</title>
+<meta charset="utf-8" />
+<style>
+	.hide{ display: none; }
+</style>
+
+
+</head>
+<body>
+	<select name="provs">
+		<option>—请选择—</option><!--0-->
+		<option>北京市</option><!--1-->
+		<option>天津市</option>
+		<option>河北省</option>
+	</select>
+	<select name="cities" class="hide">
+	</select>
+  <script>
+	/*实现“省”和“市”的级联下拉列表*/
+	var cities=[
+      [{"name":'东城区',"value":101},
+       {"name":'西城区',"value":102},
+       {"name":'海淀区',"value":103},
+       {"name":'朝阳区',"value":104}],
+      [{"name":'河东区',"value":201},
+       {"name":'河西区',"value":202},
+       {"name":'南开区',"value":203}],
+      [{"name":'石家庄市',"value":301},
+       {"name":'廊坊市',"value":302},
+       {"name":'保定市',"value":303},
+       {"name":'唐山市',"value":304},
+       {"name":'秦皇岛市',"value":305}]
+	];
+  var selProvs=document.getElementsByName("provs")[0];
+  
+  var selProvs.onchange=function(){
+    var i=selProvs.selectedIndex,
+    var selCts=document.getElementsByName("cities")[0];//市对象数组
+    selCts.innerHTML="";//先清空
+    if(i>0){
+      i--;
+      var cts=cities[i];//找到对应市区小数组
+      var frag=document.createDocumentFragment();//建grag装元素
+      var opt=document.createElement("option");
+      opt.innerHTML="--请选择--";//放请选择进去
+      frag.appendChild(opt);
+      for(var c of cts){//遍历市区数组（得到对象）
+        var opt=document.createElement("option");//创一个
+        opt.innerHTML=c.name;//放一个
+        opt.value=c.value;//option标签加value
+        frag.appendChild(opt);//
+      }
+      selCts.appendChild(frag);//挂到城市select上
+      selCts.className="";//
+    }else{
+      selCts.className="hide";
+    }
+  }
+
+/*
+1.找省 下标-1和市的下标对应。
+2.市拿
+*/
+
+
+
+
+
+
+// 	var selProvs=
+//     document.querySelector("[name=provs]");
+//   var selCts=
+//     document.querySelector("[name=cities]");
+
+//   selProvs.onchange=function(){
+//     var i=this.selectedIndex-1;
+//     if(i<0) selCts.className="hide";
+//     else{
+//       var cts=cities[i];
+//       selCts.innerHTML="";
+//       var frag=
+//         document.createDocumentFragment(); 
+//       var opt=document.createElement("option");
+//       opt.innerHTML="-请选择-";
+//       frag.appendChild(opt); 
+//       for(var i=0;i<cts.length;i++){
+//         var opt=document.createElement("option");
+//         opt.innerHTML=cts[i]["name"];
+//         opt.value=cts[i]["value"];
+//         frag.appendChild(opt);
+//       }
+//       selCts.appendChild(frag);
+//       selCts.className="";
+//     }
+//   }
+ </script>
+ <script>
+// 	var selProvs=document.getElementsByName("provs")[0];
+// 	console.log(selProvs);
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html异步发送</title>
+</head>
+<body>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script>
+		$.ajax({
+			type:"get",
+			url:"data/1_menu.php",
+			data:"term=i5 256g",
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				console.log("*****向php文件发送请求出错！*****")
+			},
+			complete:function(){
+				console.log("*****向php文件发送请求出错！*****")
+			}
+
+		************************************
+		$.get("url",data，function(){...},dataType)
+		$.post()
+		$.getJSON()
+		$.getScript()
+		
+
+
+	</script>
+</body>
+</html>

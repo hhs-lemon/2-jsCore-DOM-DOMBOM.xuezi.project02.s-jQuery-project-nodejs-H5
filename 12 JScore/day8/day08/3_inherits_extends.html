@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		class Enemy
+		{
+			constructor(fname,speed){
+				this.fname=fname;
+				this.speed=speed;
+			}
+			fly(){
+				console.log(this.fname+"以时速"+this.speed+"飞行");
+			}
+		}
+		class Plane extends Enemy
+		{   //自动让Plane.prototype继承Enemy的prototype
+			constructor(fname,speed,score){
+				super(fname,speed);//Enemy中的constructor***********
+				this.score=score;
+			}
+			getScore(){
+				console.log("击落"+this.fname+"得"+this.score+"分");
+			}
+		}
+		var f16=new Plane("F16",1000,5);
+		f16.fly();
+		f16.getScore();
+		console.log(f16);
+
+		//作业: 仿Plane，实现Bee
+
+	</script>
+ </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>回调地狱函数1.  解决回调地狱2.</title>
+ </head>
+ <body>
+<!-- 	1. -->
+<!-- 	<script> -->
+<!-- 		function hua(fun){ -->
+<!-- 			console.log("hua 开始跑..."); -->
+<!-- 			setTimeout(function(){ -->
+<!-- 				console.log("hua 到达终点！"); -->
+<!-- 				fun(); -->
+<!-- 			},5000);//五秒后运行里面的内容 -->
+<!-- 		} -->
+<!-- 		function yaner(fun){ -->
+<!-- 			console.log("yaner 开始跑..."); -->
+<!-- 			setTimeout(function(){ -->
+<!-- 				console.log("yaner 到达终点！"); -->
+<!-- 				fun(); -->
+<!-- 			},3000); -->
+<!-- 		} -->
+<!-- 		function dong(){ -->
+<!-- 			console.log(" dong 开始跑..."); -->
+<!-- 			setTimeout(function(){ -->
+<!-- 				console.log(" dong 到达终点！"); -->
+<!-- 			},4000); -->
+<!-- 		} -->
+<!-- //		hua(); -->
+<!-- //		yaner(); -->
+<!-- //		dong(); -->
+<!-- 		hua(function(){yaner(function(){dong()})}); -->
+<!-- 	</script> -->
+<!-- 	2.  先注释上面的所有再运行二，有function提前声明冲突-->  
+	<script>
+		function hua(){
+			return new Promise(function(open,err){ //
+			console.log("hua 开始跑...");
+			setTimeout(function(){
+				if(Math.random()>0.4){
+					console.log("hua 到达终点！");
+					open();
+				}
+				else{err("hua摔倒了")};
+			},5000);//五秒后运行里面的内容
+			})
+		}
+		function yaner(){
+			return new Promise(function(open,err){
+				console.log("yaner 开始跑...");
+				setTimeout(function(){
+					if(Math.random()>0.4){
+						console.log("yaner 到达终点！");
+						open();
+					}else err("yaner摔倒了！");
+				},3000);
+			})
+		}
+		function dong(){
+			return new Promise(function(){
+				console.log(" dong 开始跑...");
+				setTimeout(function(){
+					console.log(" dong 到达终点！");
+				},4000);
+			})
+		}
+//		hua();
+//		yaner();
+//		dong();
+		hua()
+		.then(yaner)
+		.then(dong)
+		.catch(function(errInfo){console.err(errInfo)});
+	</script>
+ </body>
+</html>
+<!-- 跟着步骤弄一次从回调地狱到promise1.错误处理，对照老师看为什么打不出。 -->

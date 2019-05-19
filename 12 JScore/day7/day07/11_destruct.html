@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+//		var today=[2018, 4, 25];
+//    var [y,m,d]=today;
+//		console.log(y, m, d);
+		var today={
+			year:2018,
+			month:4,
+			date:25
+		};
+	//var {year:year, month:month, date:date}=today;
+		var {year, month, date}=today;
+    console.log(year, month, date);
+//users.js
+var users={
+	login:function(){ console.log("登录..."); },
+	logout:function(){ console.log("注销..."); },
+	register:function(){ console.log("注册..."); },
+	islogin:function(){
+		console.log("判断是否登录...");
+	}
+}
+
+//index.js: 只用islogin和logout
+//var {islogin:islogin, logout:logout}=users;
+var {islogin, logout}=users;
+logout();
+islogin();
+	</script>
+ </body>
+</html>

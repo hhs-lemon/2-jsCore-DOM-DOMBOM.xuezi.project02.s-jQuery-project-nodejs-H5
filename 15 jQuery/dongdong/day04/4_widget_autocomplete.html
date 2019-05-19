@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Autocomplete</h1>
+	
+	搜索：<input name="search">
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script>
+//		var menu=[
+//			"鱼香肉丝","鱼香茄子","水煮牛肉","水煮肉片"
+//		];
+		$("[name=search]").autocomplete({
+			source:"data/4_menu.php",
+			focus:function(e, li){
+				//this->当前文本框
+				$(this).val(li.item.title);
+				return false;
+			},
+			select:function(e, li){
+				$(this).val(li.item.title);
+				return false;
+			}
+		}).autocomplete("instance")
+			._renderItem=function($ul,item){
+			var $li=$(`<li><span>${item.title}</span> 销量:<b>${item.sold_count}</b></li>`);
+			$ul.append($li);
+			return $li;
+		}
+	</script>
+ </body>
+</html>

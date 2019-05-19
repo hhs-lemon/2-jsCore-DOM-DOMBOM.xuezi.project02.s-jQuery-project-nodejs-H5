@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>...</title>
+  <link rel="stylesheet" href="myui/myui.css">
+ </head>
+  
+ <body>
+  <h1>下拉菜单</h1>
+  <div id="my-dropdown">
+    <a href="#">Dropdown</a>
+    <ul>
+	    <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+	    <li><hr></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+  </div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="myui/myui.js"></script>
+	<script>
+		$("#my-dropdown").dropdown();
+	</script>
+ </body>
+</html>
+<!-- 
+插件封装：
+1.引入3个文件：myui.css ——jquery-1.11.3.js——myui.js
+2.css设置样式都以父class开头——js里封装函数dropdown
+3.写合规格的html
+4.编写自定义脚本: 查找插件父元素，调用插件API
+ -->

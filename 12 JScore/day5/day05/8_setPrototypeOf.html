@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		var father={
+			bal:1000000000,
+			car:"infiniti"
+		};
+		function Student(sname, sage){
+			this.sname=sname;
+			this.sage=sage;
+		}
+		Student.prototype=father;
+		Student.prototype.intr=function(){
+			console.log(
+				"I'm "+this.sname+", I'm "+this.sage
+			);
+		}
+		var lilei=new Student("Li Lei",18);
+		var hmm=new Student("Han Meimei",19);
+		
+		//hmm.__proto__=father;
+		//Object.setPrototypeOf(hmm,father);
+		console.log(hmm.bal,hmm.car);
+		console.log(lilei.bal,lilei.car);
+		console.log(hmm);
+		console.log(lilei);
+	</script>
+ </body>
+</html>

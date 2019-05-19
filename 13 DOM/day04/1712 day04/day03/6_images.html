@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #slider{
+      width:200px; height:150px;
+      position:relative;
+      border:1px solid #555;
+    }
+    #slider>img{
+      position:absolute; top:0; left:0;
+      opacity:0;
+      transition:all .5s linear;
+    }
+    #slider>img.show{  opacity:1; z-index:10;  }
+  </style>
+</head>
+<body>
+<div id="slider">
+  <img src="images/1.jpg" alt="万紫千红" class="show"/>
+  <img src="images/2.jpg" alt="大漠戈壁"/>
+  <img src="images/3.jpg" alt="花团锦簇"/>
+  <img src="images/4.jpg" alt="海洋生物"/>
+</div>
+<script>
+	var imgs=slider.children;
+	for(var img of imgs){
+		img.onclick=function(){
+			//this->当前img
+			alert(this.alt);
+		}
+	}
+	slider.onmouseover=function(){
+		clearInterval(timer);
+		timer=null;
+	}
+	slider.onmouseout=function(){
+		timer=setInterval(task,3000);
+	}
+  function task(){
+		var show=
+			document.getElementsByClassName("show")[0];
+		show.className="";
+		if(show.nextElementSibling!=null)
+			var next=show.nextElementSibling;
+		else
+			var next=show.parentNode.firstElementChild;
+		next.className="show";
+	}
+	var timer=setInterval(task,3000);
+</script>
+</body>
+</html>

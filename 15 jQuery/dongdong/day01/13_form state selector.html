@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>.....</title>
+  <meta charset="utf-8"/>
+  <style>
+  </style>
+ </head>
+ <body>
+	<form>
+		用户名:<input disabled></br>
+		密码:<input type="password" disabled></br>
+		<input type="checkbox">我同意本站的使用条款<br>
+		<input type="submit" value="提交注册信息" disabled/>
+	</form>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		//查找触发事件的元素
+		var $chb=$(":checkbox");
+		//绑定事件
+		$chb.click(function(){
+			//查找要修改的元素
+			var $inputs=$(":input:not(:checkbox)")//表单中除了checkbox的所有元素。
+			//修改元素
+			$inputs.prop("disabled",!$(this).prop("checked"));//prop 属性
+			//this   checked     true     false//若果取消选中
+			//inputs  disabled   false     true//disabled为false
+			//写法：元素的属性("disable",是true/false：!$(this).prop("checked"),默认true)
+		})
+	</script>
+ </body>
+</html>
+<!-- 
+同意 disable 
+思路：点击事件绑在checkbox——找其他的元素 根据checkbox的checked属性修改属性disable
+1.找checkbox
+2.绑事件——改某元素属性：.props("disable",!$(this).props("checked"))
+（某元素的属性disble是ture还是false，true/false用原来的元素的checked属性是否有来代替。）
+-->

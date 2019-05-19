@@ -1,0 +1,38 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>事件处理 、切割信息</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+ 	<form>
+		姓名:<input name="username"/><br>
+		密码:<input type="password" name="pwd"/><br>
+    爱好:<input type="checkbox" name="favs" value="running"/>跑步
+          <input type="checkbox" name="favs" value="swimming"/>游泳
+          <input type="checkbox" name="favs" value="basketball"/>篮球
+          <br>
+		<input type="submit"/>
+	</form>
+  <script>
+  	function search2obj(){
+  		var obj={};
+  		if(location.search!==""){
+  			//?username=zhangdong&pwd=11111
+  			var strs=location.search.slice(1).split("&");
+  			//["username=zhangdong","pwd=111111"]
+  			for(var str of strs){
+  				var arr=str.split("=");
+  				obj[arr[0]]=arr[1];//给对象插入数据：obj[username]=值
+  			}
+  		}
+  		return obj;
+  	}
+  	var obj=search2obj();
+  	console.log(obj);
+  </script>
+</body>
+</html>
+
+<!-- 切割：笔试：?username=zhangdong&pwd=123456 转对象 obj.uname obj.pwd -->

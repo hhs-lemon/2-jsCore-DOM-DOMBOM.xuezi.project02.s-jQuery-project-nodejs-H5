@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<button id="btn">今日天气</button>
+	<script src="jquery-1.11.3.js"></script>
+  <script>
+		//cmd->ipconfig
+		//http://localhost
+		
+		//xhr: ajax: $.get()/post()/load()
+//		function show(weather){
+//			alert("今日天气:"+weather);
+//			$("script:last").remove();
+//		}
+		$("#btn").click(function(){
+//			$(`<script src="http://127.0.0.1/weather.php?callback=show">`)
+//			.appendTo("body");
+			$.ajax({
+				type:"get",
+				url:"http://127.0.0.1/weather.php",
+				dataType:"jsonp",
+				success:function(weather){
+					alert("天气预报:"+weather);
+				}
+			})
+		})
+	</script>
+<!-- 	<script src="http://127.0.0.1/weather.php?callback=show"></script> -->
+	<!--         document.write('阴 15~26');
+	                        fun('阴 15~26');
+												 show('阴 15~26')
+	-->
+ </body>
+</html>
+<!-- 
+php里了返回的是随机函数名包着的数据参数
+ -->

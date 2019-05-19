@@ -1,0 +1,30 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/2.css"/>
+		
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				<div id="d3">
+				</div>
+			</div>
+		</div>
+    <script>
+			d1.onclick=function(){
+				alert("我是d1");
+			}
+			d2.onclick=function(e){
+				alert("我是d2");
+				e.stopPropagation();
+			}
+			d3.onclick=function(e){
+				alert("我是d3");
+				e.stopPropagation();
+			}
+		</script>
+	</body>
+</html>

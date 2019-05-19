@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+	class User{
+		constructor(){}
+		save(){
+			console.log("保存当前用户信息")
+		}
+		static findById(id){
+			console.log("用id查找一个用户");
+		}
+		var dd=new User();
+		dd.save();
+		User.findById(101);
+
+		
+
+	}
+
+  </script>
+ </body>
+</html>

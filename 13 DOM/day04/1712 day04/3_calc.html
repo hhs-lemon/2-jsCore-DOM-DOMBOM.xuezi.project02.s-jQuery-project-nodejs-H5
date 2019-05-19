@@ -1,0 +1,38 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>取消与利用冒泡</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<div id="keys">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button><br>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>=</button>
+		</div>
+		<textarea id="sc" style="resize:none;width:200px; height:50px;" readonly></textarea>
+    <script>
+			keys.onclick=function(e){
+				//this->父元素keys
+				var tar=e.target;
+				if(tar.nodeName==="BUTTON"){
+					//判断tar的内容
+						//是C
+							//清空sc的内容
+						//是=
+							//尝试:
+								//获得sc的内容，放入eval()中，将计算的结果保存回sc的内容中
+							//一旦出错:
+								//将错误信息err显示回sc的内容中
+						//其余按钮:
+							//将自己的内容，追加到sc的内容后
+				}
+			}
+		</script>
+	</body>
+</html>

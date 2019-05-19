@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+//  构造函数封装：简化
+		//DRY: Don't repeat yourself
+		class Student{
+			constructor(sname, sage){
+				this.sname=sname;
+				this.sage=sage;
+			}
+			intr(){
+				console.log(
+					"I'm "+this.sname+", I'm "+this.sage
+				);
+			}
+		}
+		var lilei=new Student("Li Lei",11);
+		var hmm=new Student("Han Meimei",12);
+		console.log(lilei);
+		console.log(hmm);
+		lilei.intr();
+		hmm.intr();
+		console.log(lilei.__proto__==hmm.__proto__);
+//继承：简化
+	</script>
+ </body>
+</html>

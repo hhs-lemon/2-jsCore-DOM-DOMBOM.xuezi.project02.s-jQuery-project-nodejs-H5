@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		
+//		function ajax({
+//			type:type,
+//			url:url,
+//			data:data,
+//			dataType:dataType
+//		}){
+		function ajax({type,url,data,dataType})
+			console.log(type);
+			console.log(url);
+			console.log(data);
+			console.log(dataType);
+		}
+		ajax({
+			type:"get",
+			url:"islogin.php",
+			dataType:"JSON"
+		});
+		ajax({
+			type:"post",
+			url:"login.php",
+			data:"uname=dongdong"
+		});
+	</script>
+ </body>
+</html>

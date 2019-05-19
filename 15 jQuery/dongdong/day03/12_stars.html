@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    img { position: relative; }
+  </style>
+</head>
+<body>
+<img id="s1" src="img/star.png"><br/>
+<img id="s2" src="img/star.png"><br/>
+<img id="s3" src="img/star.png"><br/>
+<img id="s4" src="img/star.png"><br/>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+  /*
+  s1在屏幕左上角的小星星， 点击后从左移动到屏幕右边
+  s2在屏幕左上角的小星星，点击后从左移动到屏幕右边，再移动到下边——走直角
+  s3在屏幕左上角的小星星，点击后从左上角移动到屏幕右下边，走斜线
+  s4点击小星星，变大、变淡....  直至消失
+*/
+	$("#s1").click(function(){
+		var $img=$(this)
+		if(!$img.is(":animated"))
+			$img.delay(3000).animate({ left: 300 },2000 );
+		else
+			$img.stop();
+	})
+	$("#s2").click(function(){
+		var $img=$(this)
+		if(!$img.is(":animated"))
+			$img.animate({ left: 300 },1000 )
+						.animate({ top:200 },1000)
+						.animate({ left: 500 }, 1000);
+		else
+			$img.stop(true);
+	});
+	$("#s3").click(function(){
+		var $img=$(this)
+		if(!$img.is(":animated"))
+			$img.animate({ left: 500, top: 200 }, 3000);
+		else
+			$img.stop();
+	})
+	$("#s4").click(function(){
+		alert("别碰我！");
+		$(this).animate({
+			width:256, height:256, opacity:0,
+			marginLeft:-64, marginTop: -64
+		},2000,function(){
+			$(this).hide();
+		})
+	});
+</script>
+</body>
+</html>

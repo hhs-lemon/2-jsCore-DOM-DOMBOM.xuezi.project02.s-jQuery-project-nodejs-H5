@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>事件处理</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+ 	<form>
+		姓名:<input name="username"/><br>
+		密码:<input type="password" name="pwd"/><br>
+    爱好:<input type="checkbox" name="favs" value="running"/>跑步
+          <input type="checkbox" name="favs" value="swimming"/>游泳
+          <input type="checkbox" name="favs" value="basketball"/>篮球
+          <br>
+		<input type="submit"/>
+	</form>
+  <script>
+  	//location.search字符串转对象方法：经历两次切割
+function search2Obj(){
+	var obj={};
+	if(location.search!==""){   //如果location.search不是空字符，就给我转对象！！！
+		//?username=zhangdong&pwd=123456
+		var strs=location.search.slice(1).split("&");//取location.search
+		//["username=zhangdong","pwd=123456"]
+		for(var str of strs){
+			//"username=zhangdong"
+			var arr=str.split("=");
+			obj[arr[0]]=arr[1]; //给对象插入数据：obj[username]=值
+		}
+	}
+	return obj;
+}
+var obj=search2Obj();
+console.log(obj);
+		/*{
+			username: "zhangdong",
+			pwd: "123456"
+		}*/
+  </script>
+</body>
+</html>
+ <!-- 切割：笔试：?username=zhangdong&pwd=123456 转对象 obj.uname obj.pwd -->

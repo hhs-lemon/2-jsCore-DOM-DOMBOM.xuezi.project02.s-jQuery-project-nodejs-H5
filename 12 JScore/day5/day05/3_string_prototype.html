@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+if(typeof String.prototype.trim!=="function")
+	String.prototype.trim=function(){
+		document.write("调用自定义的trim");
+		return this.replace(/^\s+|\s+$/g,"");
+	}
+
+		var str="     zhang     dong      ";
+		str=str.trim();
+		alert("|"+str+"|");
+	</script>
+ </body>
+</html>

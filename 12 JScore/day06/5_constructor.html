@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		"use strict";
+		function Emp(id,ename,salary,age){
+			Object.defineProperties(this,{
+				id:{
+					value:id,
+					writable:false,
+					enumerable:true
+				},
+				ename:{
+					value:ename,
+					writable:true,
+					enumerable:true
+				},
+				salary:{
+					value:salary,
+					writable:true,
+					enumerable:false
+				},
+				_age:{
+					writable:true,
+					enumerable:false
+				}
+			})
+			this.age=age;
+
+			//Object.preventExtensions(this);
+			Object.seal(this);
+		}
+		Object.defineProperty(Emp.prototype,"age",{
+			get:function(){ return this._age; },
+			set:function(val){
+				console.log("自动调用age的set,得到"+val);
+				if(val>=18&&val<=65)
+					this._age=val;
+				else
+					throw new RangeError("年龄必须介于18~65之间!")
+			},
+			enumerable:true,
+			configurable:false
+		});
+		var eric=new Emp(1001,"恩里克",12000,25);
+		//eric.id=1002;
+		//delete eric.ename;
+		for(var key in eric){
+			console.log(key+":"+eric[key]);
+		}
+		console.log(eric);
+		eric.Age=-2;
+	</script>
+ </body>
+</html>

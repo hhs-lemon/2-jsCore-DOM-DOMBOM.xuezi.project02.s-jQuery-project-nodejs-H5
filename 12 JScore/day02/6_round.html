@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function round(num,d){
+			num*=Math.pow(10,d);//小数点右移d位
+			num=Math.round(num);//四舍五入取整
+			return num/Math.pow(10,d);//小数点左移d位
+		}
+
+		console.log(
+			round(345.678,2),//345.68
+			round(345.678,0),//346
+			round(345.678,-1)//350
+		);
+	</script>
+ </body>
+</html>

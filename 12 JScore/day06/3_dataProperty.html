@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		"use strict";
+		var eric={
+			id:1001,
+			ename:"恩里克",
+			salary:12000,
+			_age:25//受保护的数据属性
+		};
+		var id_prop=
+			Object.getOwnPropertyDescriptor(eric,"id");
+		console.log(id_prop);
+		Object.defineProperties(eric,{
+			id:{
+				writable:false,
+				configurable:false
+			},
+			ename:{
+				configurable:false
+			},
+			salary:{
+				enumerable:false,
+				configurable:false
+			},
+			_age:{
+				enumerable:false,
+				configurable:false
+			},
+			age:{
+				get:function(){ 
+					console.log("调用age的get方法");
+					return this._age; 
+				},
+				set:function(val){
+					console.log("调用age的set方法,获得新值"+val);
+					if(val>=18&&val<=65)
+						this._age=val;
+					else
+						throw new RangeError("年龄必须介于18~65之间!")
+				},
+				enumerable:true,
+				configurable:false
+			}
+		})
+
+//		Object.defineProperty(eric,"id",{
+//			writable:true,
+//			configurable:true
+//		})
+//		eric.id=1002;
+		//delete eric.ename;
+		for(var key in eric){
+			console.log(key+":"+eric[key]);
+		}
+		eric.age=26;//试图调用age的set方法
+		console.log(eric.age);//试图调用age的get方法
+		eric.age=-2;//试图调用age的set方法
+	</script>
+ </body>
+</html>

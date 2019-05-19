@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<button>click me</button>
+	<button>click me</button>
+	<button>click me</button>
+	<button>click me</button>
+	<button>click me</button>
+	<script>
+		//鄙视: 点每个按钮，让每个按钮说自己是第几个
+		var btns=document.getElementsByTagName("button");
+		for(var i=0;i<btns.length;i++){
+			(function(i){
+				btns[i].onclick=function(){
+						alert("我是第"+i+"个");
+					}
+			})(i);
+		}
+		
+	</script>
+ </body>
+</html>
+
+
+<!-- 问题：为什么要用return function,要不然只显示我是第五个？（保护变量i） -->

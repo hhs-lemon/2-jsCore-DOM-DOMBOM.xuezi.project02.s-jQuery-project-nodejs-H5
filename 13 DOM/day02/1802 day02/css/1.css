@@ -1,0 +1,12 @@
+li{
+	list-style:none;
+}
+li span{
+	padding-left: 20px;
+	cursor: pointer;
+  background: url("../images/add.png") no-repeat center left;
+}
+//* ҳ���ʼ�ni你是谁�Ϣ����ʾ */
+li ul{display: none; }
+.open{ background: url("../images/minus.png") no-repeat center left; }
+.open+ul{ display: block; }

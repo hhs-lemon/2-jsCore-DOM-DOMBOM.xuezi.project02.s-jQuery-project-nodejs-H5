@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的内容和值</h1>
+	<form action="">
+		用户名:<input name="uname">
+					<span></span><br>
+		密码:<input type="password" name="upwd">
+					<span></span><br>
+		<input type="submit" value="提交注册信息">
+	</form>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+    //正确时，使用图片:"<img src='img/ok.png'>"
+    //姓名错误时: "<img src='img/err.png'>用户名必须介于3~9位之间!"
+    //密码错误时: "<img src='img/err.png'>密码必须介于6~8位之间!"
+    //阻止默认行为: e.preventDefault();
+    //表单提交: $(form).submit();
+		var $txtName=$("form>[name=uname]");
+		var $txtPwd=$("form>[name=upwd]");
+		$("form").submit(function(e){//.onsubmit
+			if($txtName.val().length<3
+				||$txtName.val().length>9){
+				e.preventDefault();
+				$txtName.next().html("<img src='img/err.png'>用户名必须介于3~9位之间!");
+			}else{
+				$txtName.next().html("<img src='img/ok.png'>");
+				if($txtPwd.val().length<6
+					||$txtPwd.val().length>8){
+					e.preventDefault();
+					$txtPwd.next().html("<img src='img/err.png'>密码必须介于6~8位之间!");
+				}
+			}
+		})
+	</script>
+ </body>
+</html>
+<!-- 
+登录输入判断：对错弹出提示 提交前阻止
+1.  改标签内容片段：.html(""): $txtName.next().html("<img src='img/err.png'>用户名必须介于3~9位之间)
+2.  可阻止提交方法：$("form").submit():  $("form").submit(function(e){条件：e.preventDefault})
+ -->

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function add(/*...nums*/){
+			var nums=[].slice.call(arguments);
+				//arguments.slice()
+			return nums.reduce(function(prev,elem){
+				return prev+elem;
+			})
+		}
+		console.log(add(1,2,3), add(1,2,3,4,5));
+
+		function calc(base/*,...bonus*/){
+			console.log("底薪:"+base);
+			var bonus=[].slice.call(arguments,1);
+			        //arguments.slice(1);
+			console.log("奖金:"+
+				bonus.reduce(function(prev,elem){
+					return prev+elem;
+				})
+			);
+		}
+		calc(10000,1000,2000);
+		calc(3000,1000,2000,3000);
+	</script>
+ </body>
+</html>

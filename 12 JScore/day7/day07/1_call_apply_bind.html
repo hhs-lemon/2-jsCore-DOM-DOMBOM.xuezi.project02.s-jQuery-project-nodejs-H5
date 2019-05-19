@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function calc(base,bonus1,bonus2){
+			console.log(this.ename+"的总工资是:"+(base+bonus1+bonus2));
+		}
+		//calc(10000,1000,2000);
+		var lilei={ename:"Li Lei"};
+		var hmm={ename:"Han Meimei"};
+		//lilei.calc();
+		calc.call(lilei,10000,1000,2000);
+		var salary=[3000,4000,5000];
+		calc.apply(hmm,salary);
+
+		var lilei_calc=calc.bind(lilei,10000);
+		/*lilei_calc:
+		function calc(10000,bonus1,bonus2){
+			console.log(lilei.ename+"的总工资是:"+(base+bonus1+bonus2));
+		}
+		*/
+		lilei_calc(1000,2000);
+	</script>
+ </body>
+</html>

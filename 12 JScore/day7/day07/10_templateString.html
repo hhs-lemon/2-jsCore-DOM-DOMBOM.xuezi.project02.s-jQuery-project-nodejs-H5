@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style>
+		table{width:300px; border-collapse:collapse}
+		td,th{border:1px solid #aaa}
+	</style>
+ </head>
+ <body>
+	<div id="data">
+	</div>
+  <script>
+var price=3.5,count=5;
+data.innerHTML=
+`<table>
+	<thead>
+		<tr>
+			<th>单价</th><th>数量</th><th>小计</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>¥${price.toFixed(2)}</td>
+			<td>${count}</td>
+			<td>¥${(price*count).toFixed(2)}</td>
+		</tr>
+	</tbody>
+</table>`;
+	</script>
+ </body>
+</html>

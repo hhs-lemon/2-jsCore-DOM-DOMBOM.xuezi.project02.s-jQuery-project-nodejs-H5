@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      input.error{
+        box-shadow: 0 0 10px red;
+      }
+      label.error{
+        background-image:url(../imgs/err.png);
+        color:red;
+        background-repeat:no-repeat;
+        background-position:left;
+        background-size: 25px 25px;
+        padding-left:25px;
+        margin-left:10px;
+        font-style: italic;
+      }
+/*      div.error{*/
+/*        box-shadow: 0 0 10px red;*/
+/*        display:none;*/
+/*      }*/
+/*      div.error>label.error{*/
+/*        display:block;*/
+/*        margin-left:1em;*/
+/*        color:red;*/
+/*        font-style: italic;*/
+/*      }*/
+    </style>
+  </head>
+  <body>
+    <form id="form1" method="post" action="submit.php">
+      <p>
+        <label>用户名: 
+        <input id="uname" name="uname" value="zhangdong">(必填，2个以上字符)
+        </label>
+      </p>
+      <p>
+        <label>密码: 
+        <input id="upwd1" name="upwd1" type="password" value="123456">(必填，6~8位数字)
+        </label>
+      </p>
+      <p>
+        <label>确认密码: 
+        <input name="upwd2" type="password" value="123456">(必填，必须和密码保持一致)
+        </label>
+      </p>
+      <p>
+        <label>电子邮件: 
+        <input id="email" name="email" value="zhangdong@tedu.cn">(必填，但必须符合电子邮件)
+        </label>
+      </p>
+      <p>
+        <label>生日: 
+        <input id="birth" name="birth">(选填，但必须符合日期格式，且已满18岁)
+        </label>
+      </p>
+      <p>
+        <label>个人主页: 
+        <input id="url" name="url">(选填，但必须符合URL格式)
+        </label>
+      </p>
+      <p>
+        <label>QQ: 
+        <input id="qq" name="qq">(选填，但必须由5~11位数字组成)
+        </label>
+      </p>
+      <p>
+        <label>手机号: 
+        <input id="mobile" name="mobile">(选填，但必须符合中国手机号格式)
+        </label>
+      </p>
+      <p>
+        <label for="newsletter">我想接收来自网站的推荐消息: </label>
+        <input type="checkbox" id="newsletter" name="newsletter">
+      </p>
+      <fieldset>
+        <label>
+          <input type="checkbox" value="旅游" name="topic">旅游
+        </label>
+        <label>
+          <input type="checkbox" value="体育" name="topic">体育
+        </label>
+        <label>
+          <input type="checkbox" value="娱乐" name="topic">娱乐
+        </label>
+        <label for="topic" class="error" style="display:none"></label>
+      </fieldset>
+      <p>
+        <label> <input name="agree" type="checkbox">同意</label>
+      </p>
+      <div class="error">请按以下规则修改表单: </div>
+      <p>
+        <input type="submit" value="注册">
+      </p>
+    </form>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/jquery.validate.js"></script>
+		<script src="../js/messages_zh.js"></script>
+		<script src="../js/ajax.js"></script>
+    <script>
+			$.validator.addMethod(//自定义规则
+				"mobile",
+				function(val){
+					if(val==="")
+						return true;//非必填
+					else
+						return /^(\+86|0086)?\s*1[3-8]\d{9}$/.test(val);
+				},
+				"手机号格式不正确!"
+			);
+
+      $("#form1").validate({
+				submitHandler:function(form){ //onsubmit 提交
+          // alert($(form).serialize())
+					ajax({
+						type:"post",
+						url:"submit.php",
+						data:$(form).serialize()//将表单数据拼成：url数据格式
+					}).then(function(data){
+						console.log(data);
+						alert("提交成功!");
+					})
+				},
+				rules:{
+					uname:{
+						required:true,//必填
+						minlength:2,
+						remote:"vali.php"//用户名是否被占用
+					},
+					upwd1:{
+						required:true,
+						minlength:6,
+						maxlength:8,
+						digits:true//必须数字
+					},
+					upwd2:{
+						equalTo:"#upwd1"//和1一致
+					},
+					email:{
+						required:true,
+						email:true,//格式验证
+					},
+					birth:{ date:true },//日期格式
+					url:"url", //相当于{ url:true }
+					qq:{
+						digits:true,
+						rangelength:[5,11]//个数范围
+					},
+					mobile:"mobile"
+				},
+				messages:{
+					uname:{
+						required:"用户名不能为空!",
+						remote:"用户名已被占用!"
+					},
+					upwd1:{
+						required:"密码不能为空!"
+					},
+					upwd2:{
+						equalTo:"两次密码输入不一致!"
+					},
+					email:{
+						required:"邮箱不能为空!"
+					},
+					qq:{
+						rangelength:"长度必须介于5~11位之间"
+					}
+				}
+			})
+    </script>
+  </body>
+</html>
+<!-- 表单验证和提交
+  0.引入jquery和插件js
+  1.rules
+  2.css样式自己写
+  3.中文：插件压缩包——dist——localization——messages_zh.js 放进js文件——引入即可
+  4.messages：错误提示
+  5.自定义规则：.addMethod()
+  6.提交submitHandler：引入ajax.js——提交form发送ajax tud——then接收data
+  7.已被占用：用户名和邮箱：remote:"vali.php"——建php查用户名，有输出false，无true
+
+ -->

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//console.log(a);//undefine
+		//let a=10;//let 的变量，在它之前的不能用它。
+		//console.log(a);
+		var t=0;//记录执行的时间;
+		function conn(){
+			console.log("建立连接，好事0.3秒");
+			t+=0.3;
+		}
+		function query(){
+			console.log("查询数据，耗时0.8s");
+			t+=0.8;
+			var err=true;//如果改为true呢?
+			if(err==true){//块
+				(function(){
+					var t=new Date();
+					//let t=new Date();
+					console.log("查询出错了！at:"+t);
+				})();
+			}
+		}
+
+		conn();
+		query();
+		console.log(t);
+	</script>
+</body>
+</html>

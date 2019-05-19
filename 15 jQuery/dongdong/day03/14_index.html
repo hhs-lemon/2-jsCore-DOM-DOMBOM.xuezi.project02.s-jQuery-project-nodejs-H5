@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .score {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .score li {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #f00;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h3>请打分</h3>
+<ul class="score">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+  //获得当前单击的li在所有li中的位置i,i及其执行的都变为红色，i之后的都变为白色
+	$("ul.score").on("click","li",function(){
+		var $li=$(this);
+		// var i=//$("ul.score>li").index($li);
+		// 			$li.index();
+  //    $("ul.score>li:lt("+(i+1)+")").css("background","red");
+  //    $("ul.score>li:gt("+i+")").css("background","#fff");
+    $li.css("background","red")
+      .prevAll().css("background","red")//返回的是prevAll dom元素，下面不可链式操作
+    $li.nextAll().css("background","#fff")
+
+
+	});
+</script>
+</body>
+</html>
+<!-- 打五星好评
+两种方法：
+1.找到点击li的下标.大于下标的变白，小于等于下标的红
+2.点击li和之前的变红，后面所有白
+ -->

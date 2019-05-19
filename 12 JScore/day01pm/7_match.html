@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+var input="那天，我去了她家。我说: 我草, 你家真大！";
+var arr=input.match(/[我卧]\s*([草艹操槽]|cao)/i);
+//arr:[0: 我草,  index: 13 ]
+if(arr!=null){
+	alert("在"+arr.index+"位置发现敏感词:"+arr[0]+",不能发送!");
+}else{
+	document.write("文华说: "+input);
+}
+	</script>
+ </body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function doubleball(){
+			//1~33之间随机生成6个不重复的红球
+			//定义空数组reds
+			var reds=[];
+			//反复(reds的length<6)
+			while(reds.length<6){
+				//1~33之间随机生成1个红球,保存在变量r
+				var r=parseInt(Math.random()*33+1); // parseInt(Math.randon()*(max-min+1)+min)
+				//遍历reds中每个数
+				for(var i=0;i<reds.length;i++){
+					//如果reds中当前位置的值等于r
+					if(reds[i]===r) break;//就退出循环
+				}
+				//如果reds中没有r(i==reds的length)
+				if(i===reds.length)
+					reds.push(r);//才将r压入reds
+			}
+			//将reds按数字升序排列
+			reds.sort(function(a,b){return a-b});
+			//1~16之间随机生成1个蓝球
+			var b=parseInt(Math.random()*(16-1+1)+1);
+			document.write(reds.join(",")+" | "+b);
+		}
+		doubleball();
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+		//1-33里生6位
+			//生一位
+			//是否和已生成相同
+				//遍历已生成
+					//对比
+					//不同：插入已生成
+	</script>
+ </body>
+</html>

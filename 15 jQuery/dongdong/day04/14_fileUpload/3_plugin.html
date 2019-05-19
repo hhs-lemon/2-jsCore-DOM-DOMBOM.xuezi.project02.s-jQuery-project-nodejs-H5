@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery File Upload Example</title>
+<style>
+  .bar { height: 18px;  background: green; }
+</style>
+</head>
+<body>
+<input id="fileupload" type="file" name="files[]" data-url="php/" multiple>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/jquery.ui.widget.js"></script>
+<script src="../js/jquery.iframe-transport.js"></script>
+<script src="../js/jquery.fileupload.js"></script>
+<script>
+	$("#fileupload").fileupload({
+		add:function(e,data){ //在file框选中一个文件时自动触发
+			var fname=data.files[0].name;
+			console.log(fname);
+			console.log(data);
+
+			//在页面上添加一对儿文件名和上传按钮
+			data.btn=//用data的btn属性，保存当前按钮，用作上传成功后删除该按钮及其父元素。
+				$("<h1><b>"+fname+"</b><button>上传</button></h1>")
+					.appendTo("body")//h1
+					.children("button")//button
+					.click(function(){ data.submit(); });//button
+		},
+		done:function(e,data){ //上传完成
+			var fname=data.files[0].name;
+			alert(fname+" 上传成功!");
+			//从data的btn中取出add时保存的button对象，删除其父元素
+			data.btn.parent().remove();
+		}
+	})
+</script>
+</body> 
+</html>
+<!-- 
+1.引入插件：jquery.fileupload.js  jquery.iframe-transport.js
+2.引用函数：
+3.添加时：传入事件和数据——拿文件名——加上传按钮
+4.上传后：拿文件名——文件（名）提示上传成功——移除按钮
+ -->

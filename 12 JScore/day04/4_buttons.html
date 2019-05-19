@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <button id="btn_zan">赞(+0)</button>
+	<button id="btn_cai">踩(+0)</button>
+	<script>
+		btn_zan.onclick=(function(){//外层函数
+			var zan=0;
+			return function(){//返回内层函数
+				zan++;
+				btn_zan.innerHTML="赞(+"+zan+")";
+			}
+		})();//自调外层函数
+		/*btn_zan.onclick获得: 
+		  function(){
+				zan++;
+				btn_zan.innerHTML="赞(+"+zan+")";
+			};
+		*/
+		btn_cai.onclick=(function(){
+			var cai=0;
+			return function(){
+				cai++;
+				btn_cai.innerHTML="踩(+"+cai+")";
+			}
+		})();
+	</script>
+ </body>
+</html>

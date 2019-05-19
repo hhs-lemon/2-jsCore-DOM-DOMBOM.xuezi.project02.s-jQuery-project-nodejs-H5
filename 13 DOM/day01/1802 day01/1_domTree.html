@@ -1,0 +1,32 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>DOM Tree</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<span id="s1">Hello</span>
+		<h1>标题一</h1>
+		<script>
+			//当整个页面内容加载完，才执行
+			window.onload=function(){
+				var body=document.body;
+				console.log(body.nodeName);//BODY
+				var html=body.parentNode;
+				console.log(html.nodeName);//HTML
+				var children=body.children;
+				console.log(children);//3个:span,h1,script
+				var span=body.firstElementChild;
+				console.log(span.nodeName);//SPAN
+				var script=body.lastElementChild;
+				console.log(script.nodeName);//SCRIPT
+
+				var h1=span.nextElementSibling;
+				     //script.previousElementSibling
+				console.log(h1.nodeName);//h1
+				var script=body.lastElementChild;
+				console.log(script);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+<!--  特点：局限 \简化
+  1.for(){}
+  2.arr.forEach(function(elem,i))
+  3.for(var elem of arr)
+
+	动态生成内容的方式：三中都用，理解透其中的意思
+-->
+	<ul id="ul_emps"></ul>
+	<script>
+		var emps=[
+			{id:1001,ename:"tom"},
+			{id:1002,ename:"mary"},
+			{id:1003,ename:"amy"}
+		];
+		var html="";
+//1-2.		for(i=0;i<emps.length;i++){
+//			var emp=emps[i];
+		emps.forEach(function(elem){
+			var {id,ename}=elem;
+			html+=`<li>员工编号：${id},姓名：${ename}</li>`;
+		})
+//		}
+
+//3.
+		for(var elem of emps){
+			var {id,ename}=elem;
+			html+=`<li>员工编号：${id},姓名：${ename}</li>`;
+		}
+		ul_emps.innerHTML=html
+	</script>
+
+ </body>
+</html>
+<!-- 未做：后面两种补充完整 -->

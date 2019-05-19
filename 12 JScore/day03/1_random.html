@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>随机抽奖：Math.random();  鼠标停靠事件=function  背景样式变动如何js中表明：card.style.background</title>
+	<style>
+		#card{
+			border:1px solid red;
+			width:200px;
+			height:50px;
+			text-align:center;
+			line-height:50px;
+			background-color:gray;
+		}
+	</style>
+ </head>
+ <body>
+	<div id="card"></div>
+  <script>
+		//当鼠标进入card时
+		card.onmouseover=function(){
+			card.innerHTML="";
+			card.style.background="gray";
+		} 
+		card.onmouseout=function(){
+			var r=Math.random();//0<=r<1
+			card.innerHTML=
+				r<0?"一等奖:苹果笔记本":
+				r<0.000001?"二等奖:蓝牙耳机":
+				r<0.001?"三等奖:U盘":
+				        "纸巾一包";
+			card.style.background="#fff";
+		}
+	</script>
+ </body>
+</html>
+<script>
+	//设置div
+	//鼠标停靠灰色背景：.onmouseover=function
+	//鼠标离开,运行随机并格式显示：.onmouseout=function
+</script>

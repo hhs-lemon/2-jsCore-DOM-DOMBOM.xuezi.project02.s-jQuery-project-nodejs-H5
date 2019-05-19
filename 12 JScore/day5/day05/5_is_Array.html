@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		var obj1={x:1, y:2},//Object
+				obj2=[1,2,3];//Array
+				obj3=new Date();//Date
+	  var obj4={a:3, b:5};
+		    obj4.__proto__=obj2;
+		
+    //1. 判断爹
+		/*console.log(
+			obj1.__proto__==Array.prototype, //false
+			obj2.__proto__==Array.prototype, //true
+			obj3.__proto__==Array.prototype  //false
+		);*/
+		console.log(
+			Array.prototype.isPrototypeOf(obj1),
+			Array.prototype.isPrototypeOf(obj2),
+			Array.prototype.isPrototypeOf(obj3),
+			Array.prototype.isPrototypeOf(obj4)
+		);
+		//2. 判断妈:
+		/*console.log(
+			obj1.constructor==Array,
+			obj2.constructor==Array,
+			obj3.constructor==Array
+		);*/
+		console.log(
+			obj1 instanceof Array,
+			obj2 instanceof Array,
+			obj3 instanceof Array,
+			obj4 instanceof Array
+		);
+
+		//3. 判断DNA
+		console.log(
+			Object.prototype.toString.call(obj1)=="[object Array]",
+			Object.prototype.toString.call(obj2)=="[object Array]",
+			Object.prototype.toString.call(obj3)=="[object Array]",
+			Object.prototype.toString.call(obj4)=="[object Array]"
+		);
+		//4. Array.isArray(obj)
+		console.log(
+			Array.isArray(obj1),
+			Array.isArray(obj2),
+			Array.isArray(obj3),
+			Array.isArray(obj4)
+		);
+	</script>
+ </body>
+</html>

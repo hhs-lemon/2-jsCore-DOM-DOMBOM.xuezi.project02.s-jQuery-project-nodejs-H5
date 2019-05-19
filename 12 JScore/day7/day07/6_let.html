@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+//		console.log(a);//undefined
+//		let a=10;//var a=10;
+//		console.log(a);//10
+		var t=0;//记录执行的时间
+		function conn(){
+			console.log("建立连接，耗时0.3s");
+			t+=0.3;
+		}
+		function query(){
+			console.log("查询数据，耗时0.8s");
+			t+=0.8;
+
+			var err=true;//如果改为true呢?
+			if(err==true){//块
+				(function(){
+					var t=new Date();
+					//let t=new Date();
+					console.log("查询出错了！at:"+t);
+				})();
+			}
+		}
+		conn();
+		query();
+		console.log(t);//1.1
+	</script>
+ </body>
+</html>

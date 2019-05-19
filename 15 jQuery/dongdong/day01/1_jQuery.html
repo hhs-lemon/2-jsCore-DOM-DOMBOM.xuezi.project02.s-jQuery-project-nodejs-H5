@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>jQuery/$工厂函数</h1>
+  <button id="btn1">click me(0)</button>
+  <script src="js/jquery-1.11.3.js"></script>
+<!-- 	<script -->
+<!--   src="https://code.jquery.com/jquery-1.12.4.min.js" -->
+<!--   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" -->
+<!--   crossorigin="anonymous"></script> -->
+  <script>
+    //1. 输出jQuery工厂函数，jQuery类型的原型对象，并判断jQuery的原型对象是不是jQuery.fn
+    //console.log(jQuery);//function
+		//console.log(jQuery.fn);//原型: 包含API
+    //2. 使用$工厂函数查询id为btn1的一个按钮，封装在jQuery对象中，并查看jQuery对象结构: 
+    var $btn=$("#btn1");
+		console.log($btn);
+    //3. 使用简化版API为$btn绑定单击事件:修改按钮的点击次数
+		$btn.on("click",function(){
+      //this->btn->DOM->$(this)->jq
+			var $btn=$(this);
+			var n=parseFloat($btn.html().slice(9,-1));
+			n++;
+			//将n拼成要求的内容格式，放回btn的内容中
+			$btn.html(`click me(${n})`);
+		})
+</script>
+</body>
+</html>
+<!-- 
+$btn=$(this)
+事件函数内部this想用jQuery的api，要先变成jQuery对像
+ -->

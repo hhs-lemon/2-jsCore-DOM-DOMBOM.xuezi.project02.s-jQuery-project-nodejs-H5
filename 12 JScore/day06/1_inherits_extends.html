@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		class Enemy{
+			constructor(fname,speed){
+				this.fname=fname;
+				this.speed=speed;
+			}
+			//window.Enemy()
+			fly(){
+				console.log(this.fname+"以时速"+this.speed+"飞行");
+			}
+		}
+		function Plane(fname,speed,score){
+			//this->f16
+			/*window.Enemy(fname,speed);*///this->window
+			//用Plane的正确的this，注入Enemy中替换错误的this
+			Enemy.call(this,fname,speed);
+			this.score=score;
+		}
+		Plane.prototype.getScore=function(){
+			console.log("击落"+this.fname+"得"+this.score+"分");
+		}
+		Object.setPrototypeOf(
+			Plane.prototype, Enemy.prototype
+		);
+		var f16=new Plane("F16",1000,5);
+		f16.fly();
+		f16.getScore();
+
+		//作业: 仿Plane，实现Bee
+
+	</script>
+ </body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>切割数组，拼成想要的字符串</title>
+ </head>
+ <body>
+  <script>
+		var search=
+			"uname=dongdong&upwd=123456&agree=1";
+		var params=search.split("&");//切成数组
+		console.log(params);
+
+		var kw="mac i5 128g";
+		var kws=kw.split(" ");//1.切成数组
+		//[mac, i5, 128g]
+		for(var i=0;i<kws.length;i++){    //2.遍历-插入数据
+			kws[i]="title like '%"+kws[i]+"%'"
+		}
+		console.log(kws);
+		/*[
+			  title like '%mac%', 
+				title like '%i5%', 
+				title like '%128g%'
+			]*/
+		var where=kws.join(" and ");//3.插入 _and_,变成字符串！
+		//"title like '%mac%' and title like '%i5%' and title like '%128g%'"
+		console.log(where);
+	</script>
+ </body>
+</html>

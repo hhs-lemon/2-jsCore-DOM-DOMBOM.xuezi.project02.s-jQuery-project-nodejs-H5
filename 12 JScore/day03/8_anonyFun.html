@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>函数自调</title>
+ </head>
+ <body>
+	<script>
+		var start=new Date();
+		alert(
+		 "页面开始加载, at:"+start.toLocaleTimeString()
+		);
+	</script>
+	<h1>welcome</h1>
+	<p>welcome to my first web site</p>
+  <script>
+		(function(){
+			var end=new Date();
+			alert(
+			 "页面开始完成, at:"+end.toLocaleTimeString()
+			);
+		})();
+	</script>
+	<script>
+		console.log(start);//还有
+		console.log(end);//报错，没有了
+	</script>
+ </body>
+</html>

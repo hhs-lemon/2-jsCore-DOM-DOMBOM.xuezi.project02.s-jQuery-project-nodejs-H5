@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function pay(        ){
+		 //arguments[        ] .length
+		            // 0   1
+			if(arguments.length==0)
+				console.log("手机支付...");
+			else if(arguments.length==1)
+				console.log("现金支付...");
+			else
+				console.log("刷卡支付...");
+		}
+
+		pay();//手机支付...
+		pay(100);//现金支付...
+		pay("6553 1234","123456");//刷卡支付...
+       // cardId      pwd
+	</script>
+ </body>
+</html>

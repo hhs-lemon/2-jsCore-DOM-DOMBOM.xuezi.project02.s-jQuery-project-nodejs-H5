@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>函数保护+自定义round();四舍五入函数：</title>
+ </head>
+ <body>
+  <script>
+		//东东:
+		function round(num,d){
+			if(!isNaN(num)&&!isNaN(d)){  //记住这个写法！
+				num*=Math.pow(10,d);
+				num=Math.round(num);
+				return num/Math.pow(10,d);
+			}else throw new Error("孙子!必须输入数字!")
+		}
+		//文华:
+		var num=prompt("输入数字");
+		var d=prompt("输入小数位数");
+		try{
+			var result=round(num,d);
+			document.write("结果:"+result);
+		}catch(err){
+			// alert("请您输入数字");
+			console.log(err); //用try..catch(err)时：输出函数抛出的错误
+
+		}
+		document.write("<br>程序继续执行...");
+	</script>
+ </body>
+</html>
+<script>
+	//设置函数round(),
+	//如果传参是非数字，抛错：throw new Error();
+	//if true:小数点右移-Math.round()-左移
+</script>
+<!-- 
+
+面试题：函数的保护！如：计算到小数后n位，4舍5入---必须要if输入的是数字才帮你干活（验证），否则提示报错！
+
+
+-->

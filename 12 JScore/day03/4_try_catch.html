@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>输入一个数，计算小数位数：parseFloat:小数类型。 .toFixed(d),约到d位。</title>
+ </head>
+ <body>
+  <script>
+		var num=parseFloat(prompt("请输入数字")); //取小数(数字类型，可以整数)
+		var d=prompt("请输入小数位数");	//小数要几位？
+		if(d>=0&&d<=100){//try{				//给用户定输入的内容范围，以免输入不认识的
+			var result=num.toFixed(d);      //toFixed() ：约到小数后d位;
+			document.write("结果:"+result);
+		}else{//}catch(err){
+			alert("小数位数必须介于0~100之间!"); //输入小数位数的内容不对，如输入了：hello、-1，就报错
+			//console.log(err);
+		}
+		document.write("<br>程序继续执行...");
+	</script>
+ </body>
+</html>
+<script>
+	//输入转小数类型、约到第d位不用转
+	//d要在0-100间，否则提示错误：
+	//if true:  num.toFixed(d);  (输出的是字符串，不能再直接参与运算，用Math.round()就可以)
+</script>

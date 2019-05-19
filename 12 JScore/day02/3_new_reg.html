@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		var names=["紫烟","青天"];
+		console.log(names.join("|"));
+
+		var str="日照香炉升紫烟，一行白鹭上青天。床前明月光。";
+		var reg=new RegExp(names.join("|"),"g"); //拼出 reg=/紫烟|晴天/g
+		var result=str.match(reg);
+		console.log(result);
+	</script>
+ </body>
+</html>

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>navigator对象常用属性</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+	<script>
+		if(navigator.cookieEnabled)
+			document.write("cookie已启用，请妥善保存个人信息。<br>");
+		else
+			document.write("cookie已禁用，无法记住密码<br>");
+
+		if(navigator.plugins["Chrome PDF Plugin"]!==undefined)
+			document.write("已安装PDF插件...<br>");
+		if(navigator.plugins["QQ Music"]===undefined)
+			document.write("未安装QQ Music插件!");
+  </script>
+</body>
+</html>

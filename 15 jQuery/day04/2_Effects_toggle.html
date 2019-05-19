@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.box {
+			border: 1px solid #aaa;
+			background: #eee;
+			color: #333;
+			padding: 10px;
+			border-radius: 4px;
+			width: 200px;
+			background: red;
+		}
+		.box.hover{width:0;border:0;padding:0; background: pink;}
+
+	</style>
+ </head>
+ <body>
+  <h1>jQueryUI-Effects</h1>
+	<h3>新的动画特效</h3>
+	<button id="btn">click me</button>
+	<div class="box">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae autem sint asperiores accusamus aliquid inventore atque qui aperiam incidunt ea tenetur quae doloremque dicta minima natus ipsum doloribus iste nam.
+	</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script>
+		// $("#btn").click(function(){
+		// 	if(!$(".box").is(":has(fade)"))
+		// 		$(".box").addClass("fade")
+		// 	else
+		// 		$(".box").remove("fade")
+		// })-----------------错代码
+		$("#btn").click(function(){
+			$(".box").toggleClass("hover",1000)});
+  </script>
+ </body>
+</html>

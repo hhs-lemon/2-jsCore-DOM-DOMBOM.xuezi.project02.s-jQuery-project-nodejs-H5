@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		var msg="今晚308,w84u";
+		//将一条明文消息转为一串数字编码
+		function encode(msg){
+			//定义空字符串准备接受每个字的unicode号
+			var code="";
+			//遍历msg中每个字
+			for(var i=0;i<msg.length;i++){
+				//获得msg中位置的字符的unicode号，拼到code
+				var uc=msg.charCodeAt(i);
+//				if(uc<100)
+//					uc="000"+uc;
+//				else if(uc<1000)
+//					uc="00"+uc;
+				uc=(uc+100000+"").slice(1);
+				code+=uc;
+			}
+			return code;//返回结果
+		}
+		//调用encode函数，传入明文消息msg，获得编码结果
+		var code=encode(msg);
+		console.log(code);
+		function decode(code){
+			var msg="";
+			for(var i=0;i<code.length;i+=5){
+				var uc=code.slice(i,i+5);   //头包尾不包
+				msg+=String.fromCharCode(uc);
+			}
+			return msg;
+		}
+		var msg2=decode(code);
+		console.log(msg2);
+	</script>
+ </body>
+</html>

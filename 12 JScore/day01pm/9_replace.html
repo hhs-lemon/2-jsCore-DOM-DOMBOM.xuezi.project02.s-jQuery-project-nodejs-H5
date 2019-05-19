@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		var str="文华: 刚刚被表白了。我: 恭喜刚刚!。燕儿: 刚刚是谁？";
+		str=str.replace(/刚刚/g, "**");
+		console.log(str);
+
+		//鄙视: 将每个单词首字母转为大小:
+		var msg="we two who and who";
+		       //w  t   w   a   w
+		msg=msg.replace(/\b[a-z]/g,function(kw){
+			//kw: 会自动获得本次找到的一个关键词
+			return kw.toUpperCase();
+		});
+		console.log(msg);
+	</script>
+ </body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+var input="那天，我去了她家。我说: 我勒个去, 你家真大！";
+
+if(input.search(/[我卧]\s*([草艹操槽]|cao)/i)!=-1){
+	alert("包含敏感词,不能发送!");
+}else{
+	document.write("文华说: "+input);
+}
+	</script>
+ </body>
+</html>

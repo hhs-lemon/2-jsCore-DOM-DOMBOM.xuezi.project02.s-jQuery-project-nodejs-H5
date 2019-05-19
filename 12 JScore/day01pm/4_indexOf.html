@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		var str="no zuo no die,no can no bibi";
+		       //0      7     14     21
+		var i=-1;
+		do{ //反复
+			//从i位置之后开始查找下一个no的位置i
+			i=str.indexOf("no",i+1);
+			if(i!=-1)//如果找到就输出位置
+				console.log("在位置"+i+"发现敏感词");
+			else//否则，如果没找到或找不到了，就退出循环
+				break;
+		}while(true);
+
+	</script>
+ </body>
+</html>

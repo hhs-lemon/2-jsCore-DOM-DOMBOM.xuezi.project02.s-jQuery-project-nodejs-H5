@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #slider{
+      width:200px; height:150px;
+      position:relative;
+      border:1px solid #555;
+    }
+    #slider>img{
+      position:absolute; top:0; left:0;
+      opacity:0;
+      transition:all .5s linear;
+    }
+    #slider>img.show{  opacity:1;  }
+  </style>
+</head>
+<body>
+<div id="slider">
+  <img src="images/1.jpg" class="show"/>
+  <img src="images/2.jpg"/>
+  <img src="images/3.jpg"/>
+  <img src="images/4.jpg"/>
+</div>
+<script>
+  
+</script>
+</body>
+</html>

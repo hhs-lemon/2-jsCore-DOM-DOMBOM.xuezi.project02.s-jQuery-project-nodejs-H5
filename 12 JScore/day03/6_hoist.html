@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>面试题：什么是声明提前</title>
+ </head>
+ <body>
+  <script>//hoist
+    //var a;//undefined  声明(只提前a，不提前值！)
+
+
+		console.log(a);//undefined
+		var a=10;//  a=10;赋值
+		console.log(a);//10
+
+
+
+//		function fun(){console.log(1);}
+//		fun();//?
+//		function fun(){console.log(2);}
+//		fun();//?
+
+		var fun=function(){console.log(1);}
+		fun();//1
+		var fun=function(){console.log(2);}
+		fun();//2
+	</script>
+ </body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function hua(fun){
+			console.log("文华起跑...");
+			setTimeout(function(){//等待
+				console.log("文华到达终点!");
+				fun();
+			},7000);
+		}
+		function yaner(fun){
+			console.log("燕儿起跑...");
+			setTimeout(function(){//异步等待
+				console.log("燕儿到达终点!");
+				fun();
+			},3000);
+		}
+		function dong(){
+			console.log("东东起跑...");
+			setTimeout(function(){//异步等待
+				console.log("东东到达终点!");
+			},5000);
+		}
+//		hua();
+//		yaner();
+//		dong();
+
+		hua(function(){
+			yaner(function(){
+				dong()
+			});
+		});
+	</script>
+ </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>navigator对象常用属性</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+	<div id="d1"></div>
+  <script>
+	function task(){
+		var day1=new Date("2018/05/05");
+		var day2=new Date();
+		var s=parseInt((day2-day1)/1000);
+		var d=parseInt(s/(3600*24));
+		var h=parseInt(s%(3600*24)/3600);
+		var m=parseInt(s%3600/60);
+		var second=s%60;
+		d1.innerHTML="还有"+d+"天"+h+"时"+m+"分"+second+"秒";
+	}
+	task();
+	setInterval(task,1000);
+  </script>
+</body>
+</html>

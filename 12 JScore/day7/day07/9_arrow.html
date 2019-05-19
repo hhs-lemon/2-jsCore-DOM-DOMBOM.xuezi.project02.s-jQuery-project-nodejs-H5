@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<button id="btn">click me!</button>
+  <script>
+		var arr=[12,3,123,23,2,1];
+		arr.sort(function(a,b){return a-b;})
+		console.log(String(arr));
+
+		var str="you can you up!";
+		str=str.replace(/^[a-z]/g,function(kw){
+			return kw.toUpperCase()
+		});
+		console.log(str);
+
+		var arr=[1,2,3,4,5];
+		arr.forEach(function(elem,i,arr){
+			arr[i]=elem*2
+		});
+		console.log(String(arr));
+		var arr=[1,2,3,4,5];
+		arr=arr.map(function(elem){
+			return elem*2
+		});
+		console.log(String(arr));
+
+		//this->window
+		btn.onclick=function(){
+			//this->btn
+			alert(this.innerHTML);
+		};
+		
+		(function(){
+			console.log("Hello 来自 匿名函数自调");
+		})();
+	</script>
+ </body>
+</html>

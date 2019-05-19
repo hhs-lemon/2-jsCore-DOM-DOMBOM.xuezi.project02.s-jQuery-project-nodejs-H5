@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		//"use strict";
+
+//		var gf;
+//		qgf="今晚308,w84u";
+//		console.log(gf);
+//		console.log(qgf);
+		
+//		var eric={eid:1001, ename:"恩里克"};
+//		Object.defineProperty(eric,"eid",{
+//			writable:false//让eid只读
+//		});
+//		eric.eid=1002;
+//		console.log(eric);
+
+//		function fun(){
+//			this.speed=1000;
+//		}
+//		fun();
+//		console.log(window.speed);
+		/*
+			1, 1, 2, 3, 5, 8, 13, 21, ...
+			f1=1  f2=1   f(n)=f(n-1)+f(n-2)
+		*/
+		function f(n){
+			if(n<3) return 1;
+			else{
+//				return arguments.callee(n-1)+arguments.callee(n-2);
+				/*
+					     f1   f2    fn   
+          n=3   1    1     2
+					n=4   1    2     3
+					n=5   2    3     5
+					n=6   3    5     8
+				*/
+				var f1=1, f2=1, fn;
+				for(var i=3;i<=n;i++){
+					fn=f1+f2;
+					f1=f2;
+					f2=fn;
+				}
+				return fn;
+			}
+		}
+		console.log(f(2000));//55
+		
+	</script>
+ </body>
+</html>

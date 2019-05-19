@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+var code="NsD6";//验证码
+do{//反复
+	//请用户输入验证码
+	var input=prompt("请输入验证码:("+code+")");
+	//如果输入错误，就提示
+	if(code.toLowerCase()!=input.toLowerCase()){
+		alert("验证码错误，请重试！");
+		//并继续循环
+	}else{//否则, 退出循环
+		break; 
+	}
+}while(true);
+//(输入正确)退出循环后，提示验证通过！
+document.write("验证通过!");
+  </script>
+ </body>
+</html>

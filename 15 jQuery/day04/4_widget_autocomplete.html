@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Autocomplete</h1>
+	
+	菜品搜索：<input type="text" name="search">
+
+
+<!--
+	<form action="9.php">
+	芳龄：<input type="text" name="age" autocomplete="off">
+	<input type="submit">
+	</form>
+-->
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		// var menu=[
+		// 	"鱼香肉丝","鱼香茄子","鱼香排骨","鱼香冬瓜"
+		// ];
+		$("[name=search]").autocomplete({
+			source:"data/4_menu.php"//要将所有文件都放在hotdocs根文件中才能连接数据库
+			focus:function(e,li){
+				//this->当前文本框
+				// console.log(li);
+				$(this).val(li.item.title);
+				return false;
+			}
+
+			select:function(e,li){
+				// console.log(li);
+				$(this).val(li.item.title);
+				return false;
+			}
+
+		}).autocomplete("instance")
+		._renderItem=function($ul,item){
+			var $li=$(`<li><span>${item.title}</span>销量：<b>$(item.sole_count)</b></li>`);
+			$ul.append(li);
+			return $li;
+		}
+	</script>
+ </body>
+</html>

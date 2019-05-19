@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>日期+三年：是星期几，几号等：如果是星期六，提前一天等</title>
+ </head>
+ <body>
+  <script>
+		var hiredate=new Date("2012/6/30"); //定一日
+		var enddate=new Date(hiredate);		//n年后的该日：用new拿过来，等下要计算
+		enddate.setFullYear(enddate.getFullYear()+3);//+3年
+		var renewdate=new Date(enddate);//复制enddate，用new拿过来，等下要月份减一。
+		//将renewdate-1个月
+		renewdate.setMonth(renewdate.getMonth()-1);//举例子时说：合同提前一个月续签~~~~·
+		//如果renewdate是周六
+		if(renewdate.getDay()==6)
+			//renewdate-1天
+			renewdate.setDate(renewdate.getDate()-1);
+		//否则如果renewdate是周日
+		else if(renewdate.getDay()==0)
+		  //renewdate-2天
+			renewdate.setDate(renewdate.getDate()-2);
+		console.log(hiredate);					 //日期写法
+		console.log(enddate.toLocaleString());    //日期写法
+		console.log(renewdate.toLocaleDateString()); //日期写法
+	</script>
+ </body>
+</html>
+<!--
+错误：1.没听准课，不知为什么减一个月；
+      2.enddate=new Date(hiredate);过来再改 enddate.setFullYear(enddate.getFullYear()+3);
+-->

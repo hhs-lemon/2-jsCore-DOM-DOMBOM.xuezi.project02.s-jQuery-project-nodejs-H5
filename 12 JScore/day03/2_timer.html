@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>定时器</title>
+ </head>
+ <body>
+	<h1 id="h1"></h1>
+  <script>
+		function task(){
+			var target=new Date("2018/4/28 17:00");//定时
+			var now=new Date();						//当前时间，变
+			var s=parseInt((target-now)/1000);//相减
+
+			var d=parseInt(s/(3600*24));//秒数除以天取整
+			//不足一天的s，用来换算小时
+			var h=parseInt(s%(3600*24)/3600);//秒数除以天的模再除以小时
+			//不足一小时的s，用来换算m
+			var m=parseInt(s%3600/60);//秒数除以小时的模再除以分
+			//不足一分钟的s，作为s
+			var s=s%60;//秒数除以分的模
+
+			h1.innerHTML="距五一放假还有:"+d+"天"+h+"小时"+m+"分"+s+"秒";//script里给html填东西
+		}
+		task();
+		setInterval(task,1000);//1000ms刷新
+	</script>	
+ </body>
+</html>

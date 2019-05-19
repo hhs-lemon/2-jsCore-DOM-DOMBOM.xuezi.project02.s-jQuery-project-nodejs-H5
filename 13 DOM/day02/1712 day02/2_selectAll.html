@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>全选和取消全选</title>
+</head>
+<body>
+	<h2>管理员列表</h2>
+	<table border="1px" width="500px">
+	  <thead>
+		<tr>
+			<th><input type="checkbox"/>全选</th>
+			<th>管理员ID</th>
+			<th>姓名</th>
+			<th>操作</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>1</td>
+	  		<td>Tester</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>2</td>
+	  		<td>Manager</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>3</td>
+	  		<td>Analyst</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>4</td>
+	  		<td>Admin</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  </tbody>
+	</table>
+	<button>删除选定</button>
+  <script >
+  (function(){
+	//查触发的位置（元素）  var chbs=document.querySelectorAll("table>tbody>tr>td:first-child>input");
+	var chbs=document.querySelectorAll(
+		"table>tbody>tr>td:frist-child>input"	
+	);
+	//绑定事件：
+	for(var chb of chbs){
+		chb.onclick=function(){
+			var chb=this;
+		
+		//查找要改的元素
+		//修改
+			if(!chb.checked)//没被被选中*********
+				chbAll.checked=false;//chbAll一定不选
+			else{//被选中
+				//查未选中的元素位置（chb）
+				var unchecked=document.querySelector(
+					"table>tbody>tr>td:first-child>inpout:not(:checked)";	//否定伪类************
+				);
+				if(unchecked==null)//若果没查到未选中
+					chbAll.checked==true;
+			}
+		}
+	}
+})();
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Html5 Ajax 上传文件</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <form id="form1">
+      <label>选择本地文件:
+        <input type="file" name="file"/> 
+      </label>
+      <br />
+      <input type="button" name="submit" value="上传"/>
+    </form>
+      <script src="../js/jquery-3.2.1.js"></script>
+      <script>
+        $("#form1>:button").click(function(){
+					$.ajax({//加$ 变jq的ajax
+						type:"post",
+						url:"upload_file.php",
+						data:new FormData($("#form1")[0]),//取$form元素jq对象的dom元素——给formData
+						contentType:false,
+						processData:false
+					}).then(function(result){
+						alert(result);
+					})
+				})
+      </script>
+    </body>
+</html>
+<!-- 
+1.  jq版ajax：3.0版本，支持then;1.0版本：success:function(){}
+2.  数据是上传的表单内容
+3.  阻止ajax改内容类型——阻止处理数据
+
+ -->

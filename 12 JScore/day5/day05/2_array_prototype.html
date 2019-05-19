@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+if(typeof Array.prototype.indexOf!=="function")
+	Array.prototype.indexOf=function(elem,fromi){
+		document.write("调用自定义的indexOf<br>");
+//		if(fromi===undefined)
+//			fromi=0;
+		fromi=fromi||0;
+		var arr=this;
+		for(var i=fromi;i<arr.length;i++){
+			if(arr[i]===elem)
+				return i;
+		}
+		return -1;
+	}
+
+		var str="咱们微信联系";
+		var i=str.indexOf("微信");
+		alert(i);
+
+		var arr=[1,2,3,4,5,4,3,2,1];
+		       //0 1 2 3 4 5 6 7 8
+		var i=arr.indexOf(3);
+		alert(i);//2
+		i=arr.indexOf(3,5);
+		alert(i);//6
+		i=arr.indexOf(3,7);
+		alert(i);//-1
+		i=arr.indexOf(16);
+		alert(i);//-1
+	</script>
+ </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+ </head>
+ <body>
+  <h1>jQueryUI：Widgets —— Datepicker</h1>
+	birth: <input id="birth">
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/jquery-ui-i18n.js"></script>
+	<script>
+		$("#birth").datepicker({
+			changeMonth:true,
+			changeYear:true,
+			minDate:"-65Y", maxDate:"-18Y"
+		}).datepicker("option",$.datepicker.regional["zh-CN"]);
+	</script>
+ </body>
+</html>

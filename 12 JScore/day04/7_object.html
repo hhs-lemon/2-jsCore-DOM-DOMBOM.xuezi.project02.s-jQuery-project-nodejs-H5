@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		//lilei:
+			//姓名: Li Lei
+			//年龄: 11
+
+			//自我介绍: 输出: I'm Li Lei, I'm 11
+		var lilei={
+			sname: "Li Lei",
+			sage: 11,
+			intr:function(){
+				console.log("I'm "+this.sname+", I'm "+this.sage);
+			}
+		};
+		console.log(lilei);
+		console.log(lilei.sage);
+		lilei.sage++;
+		console.log(lilei.sage);
+
+		lilei.intr();
+
+		for(var key in lilei){
+			//console.log(key+" : "+lilei.key);
+			//console.log(key+" : "+lilei["key"]);
+			console.log(key+" : "+lilei[key]);
+		}
+
+		var hmm=new Object();
+		//hmm.sname="Han Meimei";
+		hmm["sname"]="Han Meimei";
+		console.log(hmm.sname);
+		console.log(hmm["sname"]);
+	</script>
+ </body>
+</html>

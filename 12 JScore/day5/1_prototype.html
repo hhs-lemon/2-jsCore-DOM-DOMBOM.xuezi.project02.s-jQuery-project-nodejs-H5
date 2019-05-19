@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>继承</title>
+ </head>
+ <body>
+  <script>
+		//DRY: Don't repeat yourself
+		function Student(sname, sage){
+			this.sname=sname;
+			this.sage=sage;
+			
+		}
+		Student.prototype.intr=function(){
+						console.log(
+							"I'm "+this.sname+", I'm "+this.sage
+						);
+					}
+		var lilei=new Student("Li Lei",11);
+		var hmm=new Student("Han Meimei",12);
+		console.log(lilei);
+		console.log(hmm);
+		lilei.intr();
+		hmm.intr();
+		console.log(lilei._proto_==hmm._proto_);
+		
+	</script>
+	 <script>//原来的样子
+		//DRY: Don't repeat yourself
+		function Student(sname, sage){
+			this.sname=sname;
+			this.sage=sage;
+			this.intr=function(){//用继承把它抽出来，节约内存
+				console.log(
+					"I'm "+this.sname+", I'm "+this.sage
+				);
+			}
+		}
+		var lilei=new Student("Li Lei",11);
+		var hmm=new Student("Han Meimei",12);
+		console.log(lilei);
+		console.log(hmm);
+		lilei.intr();
+		hmm.intr();
+	</script>
+ </body>
+</html>

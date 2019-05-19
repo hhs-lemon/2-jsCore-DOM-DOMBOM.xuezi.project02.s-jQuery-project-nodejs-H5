@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<h1>省市二级联动下拉菜单</h1>
+<select id="select-province">
+  <option value="-1">—请选择省份—</option>
+</select>
+<select id="select-city">
+  <option value="-1">—请选择地级市—</option>
+</select>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+  //页面加载完成后，为select填充option
+  $(function () {
+    var provinceList = [
+      '北京市',
+      '上海市',
+      '浙江省'
+    ];
+    var cityList = [
+      ['东城区', '西城区', '海淀区'],
+      ['闵行区', '浦东区', '金山区'],
+      ['杭州市', '宁波市', '绍兴市', '嘉兴市']
+    ];
+    var $prov=$("#select-province")
+    var $city=$("#select-city")
+
+    var html="";
+    for(var p of provinceList){
+      html+=`<option>${p}</option>`
+    }
+    $prov.append(html)
+      .change(function(){
+        var i=$(this).prop("selectedIndex");//找到选择项对应下标
+        $city.children(":gt(0)").remove();//清空非一
+        if(i>0){
+          var cts=cityList[i-1];
+          var html="";
+          for(var c of cts){
+            html+=`<option>${c}</option>`;
+          }
+          $city.append(html);
+        }
+      })
+
+    //将provinceList中每个省份转为option标签，追加到id为select-province的元素下
+    //为id为select-province的元素绑定change事件
+      //获得当前选中项的下标i
+      //去cityList数组中获得i-1位置的子数组
+      //清空id为select-city的元素内容
+      //先追加一个option“请选择”
+      //遍历子数组中每个城市
+        //将每个城市转为option追加到id为select-city的元素下
+  });
+</script>
+</body>
+</html>
+<!-- 省市对应选择
+1.遍历省放进option——追加到选择器
+2.当省选择改变——清空市的大于0选项——已选省下标减1对应市下标市找出——遍历进option——追加进选择器
+ -->
